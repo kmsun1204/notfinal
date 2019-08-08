@@ -1,0 +1,49 @@
+{% extends './base.html' %}
+
+
+{% block content %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <script> alert('{{ message }}'); </script>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>no</th>
+                <th>title</th>
+                <th>user</th>
+                <th>date</th>
+                <th>hit</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if post_list %}
+                {% for post in post_list %}
+                    <tr>
+                        <td id="id">{{ post.id }}</td>
+                        <td id="board_title"><a href="{{ post.get_absolute_url }}">{{ post.post_title|truncatewords:"7"}}</a></td>
+                        <td id="user">{{ post.writer}}</td>
+                        <td id="date">{{ post.post_date }}</td>
+                        <td id="hit">{{ post.post_hit }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <p class="m">아직 게시물이 없습니다!</p>
+            {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}
+

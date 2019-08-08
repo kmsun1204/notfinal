@@ -1,0 +1,47 @@
+{% block content %}
+{% load staticfiles %}
+
+<div class="red"><!--원래 row 였는데 red 로 바꾸었어요!<img circle 이라는 이미지를 이용해 넣었는데 지금 너무 src가 많아서 어디 넣어야 할지 모르겠어요.
+회원가입하고 마이페이지 보면서 할 수 있게 되면 제대로 넣을게요.-->
+    <div class="col-xs-6 col-md-3"><!--프로필입니다.-->
+        {% if profile_user.profile.profile_photo %}
+        <img class="round" src="{{profile_user.profile.profile_photo.url}}" width="200"> <br>
+        {% else %}
+        <img class="round" src="{% static 'image/profile.png' %}" width="200"> <br>
+        {% endif %}
+    </div>
+
+<div class="yellow2"><!--id가 대빵만하게 나오는자리입니다. -->
+      <h1> {{profile_user.username}} <br>
+            {% if profile_user.name is not None %}
+            {{ profile_user.name }}<br>
+            {% endif %}</h1>
+</div>
+
+<div class="yellow"><!--버튼용-->
+    <div class="col-xs-6 col-md-3">
+        {% if user == profile_user %}   <!-- 로그인한 사용자와 profile_user(프로필 소유자)가 일치할 때만 프로필 편집이 가능하도록 함 -->
+            <a href="{% url 'profile_update' %}">
+                <button type="button" class="btn btn-default">프로필 수정</button></a>
+        {% endif %}
+</div>
+
+
+<div class="green2">
+        <h3>성별 : {{ profile_user.gender}}</h3>
+        <h3>키: {% if profile_user.profile.height %}
+                    {{profile_user.profile.height}}
+                {% else %}
+                    프로필 수정을 통해 입력해주세요!
+                {% endif %}</h3>
+
+        <h3>몸무게:  {% if profile_user.profile.weight %}
+                        {{profile_user.profile.weight}}
+                     {% else %}
+                        프로필 수정을 통해 입력해 주세요!
+                     {% endif %}</h3>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+.red > .col-xs-6_col-mb-3{
+    position: absolute;
+    top: 55%;
+    right: 5%;
+    width: 20%;
+}
+
+.yellow2 >h1{
+    font-size: 3em;
+}
+
+.green2 {
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    width: 60%;
+    background-color: rgb(77,139,124);
+    min-height: 50em;
+}
+
+.yellow1 {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    width: 30%;
+    background-color: rgb(249,192,69);
+    min-height: 50em;
+}

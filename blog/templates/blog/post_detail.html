@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="kor">
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+        <a href="{% url 'index' %}">
+            <img class="logo" src="../../static/image/logo.png" alt="">
+        </a>
+        <a class="title" href="{% url 'board_index' %}">
+            <p>matching</p>
+        </a>
+        <div class="category">
+            {% if user.is_authenticated %}
+                <a id="user_name" href="{% url 'profile' user.pk">{{ user.username }}</a>
+                <a href="{% url 'logout' %}">logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">login</a>
+                <a href="{% url 'signup' %}">registration</a>
+            {% endif %}
+        </div>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <script> alert('{{ message }}'); </script>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div class="detail">
+        <p class="posts">
+            {% if post.get_next_by_post_date %}
+                <a href="{{ post.get_next_post.get_absolute_url }}" title="View next post">▶</a>
+            {% endif %}
+            {% if post.get_previous_by_post_date %}
+                <a href="{{ post.get_previous_post.get_absolute_url }}" title="View previous post">◀</a>
+            {% endif %}
+        </p>
+        <h1>{{ post.post_title }}</h1>
+        <p>{{post.writer}}</p>
+        <p>{{ post.post_date| date:'Y년  N d일 a f' }}</p>
+        <div class="detail_content">
+          {{ post.post_contents | safe }}
+        </div>
+        <div>
+            {% if user.username == post.writer %}
+                <div class="active">
+                    <a href="{% url 'post_update' post.pk %}" onclick="return confirm('정말 이 게시물을 수정하겠습니까?')">revise</a>&nbsp;
+                    <a href="{% url 'post_delete' post.pk %}" onclick="return confirm('정말 이 게시물을 삭제하겠습니까?')">delete</a>
+                </div>
+            {% endif %}
+        </div>
+        <form class="comment_write" action="{% url 'comment_write' post_pk=post.pk %}" method="POST">
+            {% csrf_token %}
+            <input id="comment" type="text" name="content" placeholder="댓글을 작성해주세요">
+            <input type="submit" value="write"/>
+        </form>
+        <h3 class="comment_title">comments</h3>
+
+        {% for comment in post.comments.all %}
+            <div class="comment">
+                {% if user.email == comment.comment_writer.email %}
+                    <a class="comment_delete" href="{% url 'comment_delete' post.pk comment.pk %}" onclick="return confirm('정말 이 댓글을 삭제하겠습니까?')">delete</a>
+                {% endif %}
+                <p class="comment_date">{{ comment.comment_date| date:'Y년  N d일 a f' }}</p>
+                <p class="comment_writer">{{ comment.comment_writer.username }}</p>
+                <p>{{ comment.comment_contents }}</p>
+            </div>
+        {% empty %}
+
+        {% endfor %}
+
+    </div>
+    </body>
+</html>
+
+

@@ -1,0 +1,39 @@
+
+<head>
+    {% load  staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<a href="../../../user/templates/user/home.html">
+    <img class="logo" src="../../static/image/logo.png" alt="">
+</a>
+            <div class="title">
+                <p>model</p>
+            </div>
+            <div class="category">
+                <a href="../../../user/templates/user/home.html">logout</a>
+                <a href="">mypage</a>
+            </div>
+            <div class="keywords">
+                <p>keywords</p>
+            </div>
+
+
+   <div class="row-key">
+           <a href="{% url 'filter_cute' %}"><button class="sixth"> 큐티 </button></a>
+    <a href="{% url 'filter_cool' %}"><button class="sixth"> 청량 </button></a>
+    <a href="{% url 'filter_bnw' %}"><button class="sixth"> 흑백사진 </button></a>
+    <a href="{% url 'filter_plus' %}"><button class="sixth"> 플러스모델 </button></a>
+   </div>
+
+        <div class="uploadpost">
+        <a href="{% url 'model_post' %}"><button class="sixth">Upload Image</button></a>
+        </div>
+
+{% block content %}
+{% endblock %}
+
+</body>

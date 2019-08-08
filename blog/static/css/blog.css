@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    z-index: 1;
+    position: fixed;
+    top: 5%;
+    left: 10%;
+    width: 7%;
+}
+
+.title {
+    z-index: 1;
+    position: absolute;
+    display: inline;
+    top: 7%;
+    left: 0;
+    width: 100%;
+    height: 1%;
+    text-decoration: none;
+}
+
+.title > p {
+    position: relative;
+    text-align: center;
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 2em;
+    margin-top: 0;
+    padding-top: 0;
+    text-decoration: none;
+}
+
+.category {
+    z-index: 2;
+    top: 3%;
+    left: 75%;
+    position: absolute;
+    display: inline;
+}
+
+.category > a {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+    text-decoration: none;
+    margin-left: 1em;
+}
+
+#user_name {
+    font-family: 'Alfa Slab One', cursive;
+    color: rgb(68,173,219);
+}
+
+.search {
+    position: absolute;
+    top: 24%;
+    left: 70%;
+    display: inline;
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.upload {
+    text-decoration: none;
+    position: absolute;
+    top: 24%;
+    left: 78%;
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+}
+
+.board {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+}
+
+.table > thead > tr > th {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+    text-align: center;
+}
+
+thead {
+    line-height: 3em;
+}
+
+tbody {
+    margin-top: 10%;
+    color: rgb(77,139,124);
+    line-height: 1.7em;
+}
+
+#id {
+    width: 10%;
+    text-align: center;
+}
+
+#board_title {
+    width: 40%;
+}
+
+#board_title > a {
+    text-decoration: none;
+    text-overflow: ellipsis;
+    color: rgb(77,139,124);
+}
+
+#user {
+    width: 20%;
+    text-align: center;
+}
+
+#date {
+    width: 20%;
+    text-align: center;
+}
+
+#hit {
+    width: 10%;
+    text-align: center;
+}
+
+.paginator {
+    position: absolute;
+    top: 80%;
+    left: 45%;
+    width: 10%;
+}
+
+.paginator > a {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+    text-decoration: none;
+    margin-right: 5%;
+}
+
+.m {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+}
+
+.detail {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    width: 60%;
+    color: rgb(77,139,124);
+}
+
+.posts > a {
+    color: rgb(77,139,124);
+    font-size: 3em;
+    text-decoration: none;
+    float: right;
+}
+
+.detail_content {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.write {
+    position: absolute;
+    top: 20%;
+    left: 17%;
+    width: 66%;
+    color: rgb(77,139,124);
+    font-family: 'Lacquer', sans-serif;
+    font-size: 1.2em;
+}
+
+.button {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+    background-color: white;
+    border: rgb(77,139,124) 2px solid;
+    float: right;
+}
+
+.active {
+    position: absolute;
+    top: 20%;
+    right: 0;
+}
+
+.active > a {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.2em;
+    text-decoration: none;
+    background-color: white;
+    border: rgb(77,139,124) 2px solid;
+    padding: 0.2em 0.4em;
+}
+
+.comment_write {
+    margin-top: 10%;
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+}
+
+.comment_write > input {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    background-color: white;
+    border: rgb(77,139,124) 2px solid;
+    padding: 0.2em 0.4em;
+    font-size: 1em;
+}
+
+#comment {
+    width: 85%;
+    margin-left: 2%;
+}
+
+.comment_title {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1.5em;
+    margin: 5% 0 5% 2%;
+}
+
+.comment_date {
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    font-size: 1em;
+}
+
+.comment_delete {
+    float: right;
+    font-family: 'Lacquer', sans-serif;
+    color: rgb(77,139,124);
+    background-color: white;
+    border: rgb(77,139,124) 2px solid;
+    padding: 0.2em 0.4em;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.comment_writer {
+    color: rgb(68,173,219);
+}

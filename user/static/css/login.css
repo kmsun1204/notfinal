@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+
+.logo {
+    z-index: 1;
+    position: fixed;
+    top: 5%;
+    left: 10%;
+    width: 7%;
+}
+
+.yellow {
+    position: absolute;
+    width: 10%;
+    height: 40%;
+    top: 30%;
+    left: 25%;
+}
+
+.form {
+    position: absolute;
+    top: 40%;
+    left: 42%;
+    color: rgb(77,139,124);
+}
+
+.form > input {
+    border: rgb(77,139,124) 2px solid;
+}
+
+.button {
+    position: fixed;
+    top: 55%;
+    left: 42%;
+    font-family: 'Lacquer', sans-serif;
+    font-size: 1.5em;
+    border: rgb(77,139,124) 2px solid;
+    color: rgb(77,139,124);
+    background-color: white;
+
+}
+
+.error_m {
+    color: rgb(253,79,91);
+}
+
+.kind {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+
+}
+
+.kind > a {
+    color: rgb(253,79,91);
+    text-decoration: none;
+}

@@ -1,0 +1,63 @@
+
+<head>
+    {% load  staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+                <a href="../../../user/templates/user/home.html">
+    <img class="logo" src="../../../static/image/logo.png" alt="">
+</a>
+            <div class="title">
+                <p>photographer</p>
+            </div>
+            <div class="category">
+                <a href="">logout</a>
+                <a href="">mypage</a>
+            </div>
+
+
+
+<div class="uploadpost">
+        <a href="{% url 'photo' %}"><button class="fifth">back-photographer</button></a>
+</div>
+
+                <div class="edde">
+                        {% if user.role == '사진작가' %}
+ <a href="{% url 'photo_edit' photo_post_detail.id %}"><button class="fifth">edit</button></a>
+ <a href="{% url 'photo_delete' photo_post_detail.id %}"><button class="fifth">delete</button></a>
+{% endif %}
+                </div>
+
+
+<div class="detail_cut">
+    <ul>
+        <h2>{{ photo_post_detail.title }}</h2>
+        {% if photo_post_detail.image1 != '' %}
+        <img src="{{ photo_post_detail.image1.url }}" width = "220" alt = "{{ photo_post_detail.title }}">
+        {% endif %}
+        {% if photo_post_detail.image2 != '' %}
+        <img src="{{ photo_post_detail.image2.url }}" width = "220" alt = "{{ photo_post_detail.title }}">
+        {% endif %}
+        {% if photo_post_detail.image3 != '' %}
+        <img src="{{ photo_post_detail.image3.url }}" width = "220" alt = "{{ photo_post_detail.title }}">
+        {% endif %}
+        {% if photo_post_detail.image4 != '' %}
+        <img src="{{ photo_post_detail.image4.url }}" width = "220" alt = "{{ photo_post_detail.title }}">
+        {% endif %}
+        {% if photo_post_detail.image5 != '' %}
+        <img src="{{ photo_post_detail.image5.url }}" width = "220" alt = "{{ photo_post_detail.title }}">
+        {% endif %}
+        <h3>{{ photo_post_detail.text }}</h3>
+        <br>
+        <h5>{{ user.username }}</h5>
+
+    </ul>
+</div>
+
+
+</body>

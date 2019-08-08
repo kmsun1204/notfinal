@@ -1,0 +1,32 @@
+
+{% extends 'model/model_base.html' %}
+{% block content %}
+    <div class="array">
+    {% for post in object_list %}
+        <div class="card">
+            <div class="box-1">
+                <img src="{{ post.thumbnail.url }}" width="200" height="250" alt = "{{ post.title }}">
+            </div>
+            <div class="box-2">
+                <h4> {{ post.title }}(id : {{ user.username }})</h4>
+                <a href="{% url 'model_detail' post.id %}"><p>{{ post.text|slice:":15" }}...more</p></a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+<div class="paginator">
+          {% if is_paginated %}
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">back</a>
+                    {% endif %}
+                    <a href="#">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                {% endif %}
+        </div>
+
+{% endblock content %}

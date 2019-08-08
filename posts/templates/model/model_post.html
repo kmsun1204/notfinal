@@ -1,0 +1,39 @@
+<head>
+    {% load  staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+
+</head>
+<body>
+
+
+<a href="../home/home.html">
+                <img class="logo" src="../../static/image/logo.png" alt="">
+            </a>
+            <div class="title">
+                <p> upload your photo</p>
+            </div>
+
+            <div class="category">
+                <a href="">logout</a>
+                <a href="">mypage</a>
+            </div>
+
+
+<center>
+<div class="form-post">
+    <form method="post" enctype="multipart/form-data">
+        <div class="box-p1">
+        {% csrf_token %}
+        </div>
+    {{ form.as_p }}
+    <button type="submit" class="sixth">Submit New Photo</button>
+    </form>
+</div>
+</center>
+
+
+</body>
+

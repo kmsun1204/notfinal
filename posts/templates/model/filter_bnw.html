@@ -1,0 +1,33 @@
+<!-- temlaptes/home.html -->
+
+{% extends 'model/model_base.html' %}
+{% block content %}
+
+
+        <div class="array">
+                {% for bnw in bnw_posts %}
+                        <div class="card">
+                            <div class="box-1">
+                                <img src="{{ bnw.thumbnail.url }}" width="200" height="250">
+                            </div>
+                            <div class="box-2">
+                                <h4>{{ bnw.title }}(id : {{ user.username }})</h4>
+                                <a href="{% url 'model_detail' bnw.id %}"><p>{{ bnw.text|slice:":15" }}...more</p></a>
+                            </div>
+                        </div>
+                {% endfor %}
+        </div>
+
+<div class="paginator">
+          {% if is_paginated %}
+                    {% if page_obj.has_previous %}
+                        <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">back</a>
+                    {% endif %}
+                    <a href="#">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }} </a>
+                    {% if page_obj.has_next %}
+                        <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+                    {% endif %}
+                {% endif %}
+        </div>
+
+{% endblock content %}
